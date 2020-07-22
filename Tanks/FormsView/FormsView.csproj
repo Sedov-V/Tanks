@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{90421532-3423-4E9C-B8CC-D37869418CF6}</ProjectGuid>
+    <ProjectGuid>{4EE5DF88-C15D-419C-A3A6-8606B3820E00}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Tanks</RootNamespace>
-    <AssemblyName>Tanks</AssemblyName>
+    <RootNamespace>FormsView</RootNamespace>
+    <AssemblyName>FormsView</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -54,6 +54,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\AppleView.cs" />
+    <Compile Include="Views\KolobokView.cs" />
+    <Compile Include="Views\TankView.cs" />
+    <Compile Include="Views\WallView.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -75,6 +82,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Entities\Entities.csproj">
+      <Project>{BEB78A17-3F53-4833-964B-ABA086CE75AE}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Logic\GameLogic.csproj">
+      <Project>{364FE867-B0FF-48D9-9F38-4FC0A54E5FD5}</Project>
+      <Name>GameLogic</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="img\test.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

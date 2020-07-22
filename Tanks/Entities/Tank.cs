@@ -12,5 +12,10 @@ namespace Entities
         {
             throw new NotImplementedException();
         }
+
+        public void OnCreate()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

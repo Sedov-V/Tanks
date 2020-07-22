@@ -8,5 +8,14 @@ namespace Entities
 {
     public class Apple : Entity
     {
+        public void OnCollision(Entity entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnCreate()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

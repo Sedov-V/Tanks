@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities
+namespace Tanks.Views
 {
-    public interface Entity
+    class AppleView
     {
-        void OnCreate();
-        void OnCollision(Entity entity);
     }
 }

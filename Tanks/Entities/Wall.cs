@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    class Kolobok : Entity
+    public class Wall : Entity
     {
         public void OnCollision(Entity entity)
         {

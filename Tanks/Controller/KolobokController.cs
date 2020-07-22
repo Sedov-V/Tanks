@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities
+namespace Controller
 {
-    public interface Entity
+    public class KolobokController
     {
-        void OnCreate();
-        void OnCollision(Entity entity);
     }
 }

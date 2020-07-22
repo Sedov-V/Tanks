@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities
+namespace MapGenerator
 {
-    public interface Entity
+    public class MapGenerator
     {
-        void OnCreate();
-        void OnCollision(Entity entity);
     }
 }

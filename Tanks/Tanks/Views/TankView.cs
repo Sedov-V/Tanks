@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities
+namespace Tanks
 {
-    public interface Entity
+    class TankView
     {
-        void OnCreate();
-        void OnCollision(Entity entity);
     }
 }
