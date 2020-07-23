@@ -8,29 +8,30 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    public class Tank : Entity
+    public class Bullet : Entity
     {
         public Point pos;
+
         private Direction dir;
+
         private int speed;
+
+        private Entity creator;
+
         public Point Pos => pos;
+
         public Direction Dir => dir;
+
         public int Speed => speed;
 
-        public Tank()
+        public Entity Creator => creator;
+
+        public Bullet(Entity creator)
         {
-            speed = 1;
-        }
-        public Tank(Point pos)
-        {
-            this.pos = pos;
-            speed = 1;
-        }
-        public Tank(int x, int y)
-        {
-            pos.X = x;
-            pos.Y = y;
-            speed = 1;
+            pos = creator.Pos;
+            dir = creator.Dir;
+            this.creator = creator;
+            speed = 4;
         }
 
         public void Update()
@@ -50,17 +51,13 @@ namespace Entities
                     pos.X += speed;
                     break;
                 default:
+                    pos.X += speed;
                     break;
             }
         }
         public void ChangeDirection(Direction dir)
         {
             this.dir = dir;
-        }
-
-        public Bullet Fire()
-        {
-            return new Bullet(this);
         }
     }
 }

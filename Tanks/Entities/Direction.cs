@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FormsView.Views
+namespace Entities
 {
-    public class KolobokView
+    public enum Direction
     {
-        public void Paint()
-        {
-
-        }
+        Up,
+        Down,
+        Left,
+        Right,
+        None
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,14 +9,18 @@ namespace Entities
 {
     public class Wall : Entity
     {
-        public void OnCollision(Entity entity)
+        private Point pos;
+        public Point Pos => pos;
+        public Direction Dir => Direction.None;
+        public Wall(int x, int y)
         {
-            throw new NotImplementedException();
+            pos.X = x;
+            pos.Y = y;
         }
 
-        public void OnCreate()
+        public void Update()
         {
-            throw new NotImplementedException();
+
         }
     }
 }
