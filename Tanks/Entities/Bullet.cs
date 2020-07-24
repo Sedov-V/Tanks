@@ -10,54 +10,59 @@ namespace Entities
 {
     public class Bullet : Entity
     {
-        public Point pos;
-
-        private Direction dir;
-
-        private int speed;
-
         private Entity creator;
 
-        public Point Pos => pos;
-
-        public Direction Dir => dir;
-
-        public int Speed => speed;
+        public Point pos;
+        private Direction dir;
+        private int speed;
 
         public Entity Creator => creator;
 
+        public Point Pos => pos;
+        public Direction Dir => dir;
+        public int Speed => speed;
+
         public Bullet(Entity creator)
         {
-            pos = creator.Pos;
-            dir = creator.Dir;
+            this.pos = creator.Pos;
+            this.dir = creator.Dir;
             this.creator = creator;
-            speed = 4;
+            if (creator is Kolobok)
+                this.speed = ((Kolobok)creator).Speed * 4;
+            if (creator is Tank)
+                this.speed = ((Tank)creator).Speed * 4;
         }
 
-        public void Update()
+        public void Update(double dTime)
         {
             switch (dir)
             {
                 case Direction.Up:
-                    pos.Y -= speed;
+                    pos.Y -= (int)(speed * dTime);
                     break;
                 case Direction.Down:
-                    pos.Y += speed;
+                    pos.Y += (int)(speed * dTime);
                     break;
                 case Direction.Left:
-                    pos.X -= speed;
+                    pos.X -= (int)(speed * dTime);
                     break;
                 case Direction.Right:
-                    pos.X += speed;
+                    pos.X += (int)(speed * dTime);
                     break;
                 default:
-                    pos.X += speed;
                     break;
             }
         }
+
         public void ChangeDirection(Direction dir)
         {
             this.dir = dir;
         }
+
+        public void ChangePosition(Point pos)
+        {
+            this.pos = pos;
+        }
+
     }
 }

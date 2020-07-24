@@ -13,6 +13,7 @@ namespace GameLogic
     public static class Generator
     {
         static Random random = new Random();
+
         public static List<Wall> GenerateMap(int width, int height, int blockSize, int pathCount)
         {
             if ((width < 5) || (height < 5))
@@ -109,29 +110,79 @@ namespace GameLogic
             return walls;
         }
 
-        public static List<Tank> GenerateTanks(int width, int height, int blockSize, int tankCount, List<Wall> walls)
+        public static List<Water> GenerateWater(int width, int height, int blockSize, ref List<Wall> borders)
         {
-            List<Tank> tanks = new List<Tank>();
+            List<Water> water = new List<Water>();
 
-            List<Point> free = freeSpace(width, height, blockSize, walls);
+            width = (int)Math.Ceiling((double)width / blockSize);
+            height = (int)Math.Ceiling((double)height / blockSize);
 
-            for (int i = 0; i < tankCount; i++)
+            int[,] arr = new int[width, height];
+
+            Point pos = new Point(random.Next(width / 4, width - width / 4), random.Next(height / 4, height - height / 4));
+
+            int[] dir = { random.Next(-1, 2), random.Next(-1, 2) };
+
+            if (dir[0] == 0) dir[0] = 1;
+            if (dir[1] == 0) dir[1] = 1;
+
+            while (pos.X > 1 && pos.X < width - 1 && pos.Y > 1 && pos.Y < height - 1)
+            {
+                arr[pos.X, pos.Y] = 1;
+
+                arr[pos.X - 1, pos.Y] = 1;
+                arr[pos.X + 1, pos.Y] = 1;
+                arr[pos.X, pos.Y - 1] = 1;
+                arr[pos.X, pos.Y + 1] = 1;
+
+                pos.X += dir[0];
+                pos.Y += dir[1];
+            }
+
+            for (int i = 0; i < width; i++)
+            {
+                for (int j = 0; j < height; j++)
+                {
+                    if (arr[i, j] == 1)
+                    {
+
+                        for (int k = 0; k < borders.Count(); k++)
+                        {
+                            Wall wall = borders[k];
+                            if (wall.Pos.X == i * blockSize && wall.Pos.Y == j * blockSize)
+                            {
+                                borders.RemoveAt(k);
+                            }
+                        }
+
+                        water.Add(new Water(i * blockSize, j * blockSize));
+                    }
+                }
+            }
+
+            return water;
+        }
+
+        public static List<U> GenerateEntity<U, V>(int width, int height, int blockSize, int amount, List<V> borders)
+        where U : Entity, new()
+        where V : Entity
+        {
+            List<U> entities = new List<U>();
+
+            List<Point> free = FreeSpace<V>(width, height, blockSize, borders);
+
+            for (int i = 0; i < amount; i++)
             {
                 int randomValue = random.Next(free.Count);
-                tanks.Add(new Tank(free[randomValue]));
+                U entity = new U();
+                entity.ChangePosition(free[randomValue]);
+                entities.Add(entity);
                 free.RemoveAt(randomValue);
             }
-            return tanks;
+            return entities;
         }
 
-        public static Apple GenerateApple(int width, int height, int blockSize, List<Wall> walls)
-        {
-            List<Point> free = freeSpace(width, height, blockSize, walls);
-
-            return new Apple(free[random.Next(free.Count)]);
-        }
-
-        private static List<Point> freeSpace(int[,] walls, int blockSize)
+        private static List<Point> FreeSpace(int[,] walls, int blockSize)
         {
             List<Point> space = new List<Point>();
             for (int i = 0; i < walls.GetLength(0); i++)
@@ -145,16 +196,48 @@ namespace GameLogic
             return space;
         }
 
-        private static List<Point> freeSpace(int width, int height, int blockSize, List<Wall> walls)
+        private static List<Point> FreeSpace<T>(int width, int height, int blockSize, List<T> borders) where T : Entity
+        {
+            /*
+            width = (int)Math.Ceiling((double)width / blockSize);
+            height = (int)Math.Ceiling((double)height / blockSize);
+
+            int[,] arr = new int[width, height];
+            foreach (T border in borders)
+            {
+                arr[border.Pos.X / blockSize, border.Pos.Y / blockSize] = 1;
+                if (border.Pos.X % blockSize != 0)
+                {
+                    arr[border.Pos.X / blockSize + 1, border.Pos.Y / blockSize] = 1;
+                }
+                if (border.Pos.Y % blockSize != 0)
+                {
+                    arr[border.Pos.X / blockSize, border.Pos.Y / blockSize + 1] = 1;
+                }
+            }
+            */
+            return FreeSpace(ToArray<T>(width, height, blockSize, borders), blockSize);
+        }
+        private static int[,] ToArray<T>(int width, int height, int blockSize, List<T> borders) where T : Entity
         {
             width = (int)Math.Ceiling((double)width / blockSize);
             height = (int)Math.Ceiling((double)height / blockSize);
 
             int[,] arr = new int[width, height];
-            foreach (Wall wall in walls)
-                arr[wall.Pos.X / blockSize, wall.Pos.Y / blockSize] = 1;
+            foreach (T border in borders)
+            {
+                arr[border.Pos.X / blockSize, border.Pos.Y / blockSize] = 1;
+                if (border.Pos.X % blockSize != 0 && border.Pos.X / blockSize + 1 < width)
+                {
+                    arr[border.Pos.X / blockSize + 1, border.Pos.Y / blockSize] = 1;
+                }
+                if (border.Pos.Y % blockSize != 0 && border.Pos.Y / blockSize + 1 < height)
+                {
+                    arr[border.Pos.X / blockSize, border.Pos.Y / blockSize + 1] = 1;
+                }
+            }
 
-            return freeSpace(arr, blockSize);
+            return arr;
         }
     }
 }

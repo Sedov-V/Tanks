@@ -7,41 +7,35 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    public class Apple : Entity
+    public class Water : Entity
     {
         private Point pos;
-
         public Point Pos => pos;
         public Direction Dir => Direction.None;
 
-        public Apple()
+        public Water()
         {
             this.pos = Point.Empty;
         }
 
-        public Apple(Point pos)
+        public Water(Point pos)
         {
             this.pos = pos;
         }
 
-        public Apple(int x, int y)
+        public Water(int x, int y)
         {
             pos.X = x;
             pos.Y = y;
         }
 
-        public void Update(double dTime)
-        {
-        }
+        public void Update(double dTime) { }
 
-        public void ChangeDirection(Direction dir)
-        {
-        }
+        public void ChangeDirection(Direction dir) { }
 
         public void ChangePosition(Point pos)
         {
             this.pos = pos;
         }
-
     }
 }

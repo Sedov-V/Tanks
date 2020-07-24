@@ -117,32 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="mainTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="Object.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="X.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Y.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="timer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAABMLAAATCwAAAAAAAAAA
-        AAD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
-        /wD///8A////AAAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAA
-        AP8AAAD/////AP///wAAcEj/AIhY/wCIWP8AcEj/AGA4/wBwSP8AYDj/AIhY/wCIWP8AiFj/AIhY/wCI
-        WP8AYDj/AJho/////wD///8AAHBI/wCYaP8AYDj/ADgg/wBQKP8AKBD/ACgQ/wCYaP8AmGj/AJho/wCY
-        aP8AmGj/AJho/wCYaP////8A////AP///wAAcEj/ACgQ/wAAAP8AOCD/ADgg/wA4IP8AiFj/AIhY/wCY
-        aP8AcEj/AFAo/wCIWP////8A////AP///wD///8AAGA4/wAAAP8AOCD/AFAo/wBgOP8AcEj/AGA4/wBg
-        OP8AmGj/AFAo/wBwSP8AiFj/////AP///wD///8A////AAAAAP8AUCj/AGA4/wBgOP8AmGj/AJho/wDA
-        iP8AiFj/AJho/wA4IP8AqHj/AIhY/////wD///8A////AP///wAAAAD/AGA4/wCYaP8AmGj/ANCQ/wDA
-        iP8AEAD/ABAA/wAQAP8AEAD/ABAA/wAQAP8AEAD/////AP///wD///8AAAAA/wBwSP8AmGj/ABAA/wCY
-        aP8AwIj/ABAA/wAQAP8AEAD/ABAA/wAQAP8AEAD/ABAA/////wD///8A////AABQKP8AqHj/AJho/wCY
-        aP8AAAD/AJho/wCYaP8AYDj/AJho/wCIWP8AmGj/AIhY/////wD///8A////AP///wAAYDj/ABAA/wDA
-        iP8AmGj/AJho/wCoeP8A0JD/AJho/wCYaP8AiFj/AIhY/wCYaP////8A////AP///wD///8AAFAo/wAA
-        AP8AAAD/ABAA/wAAAP8AAAD/AFAo/wBQKP8AUCj/ADgg/wAoEP8AOCD/////AP///wD///8AAFAo/wBw
-        SP8AUCj/ACgQ/wBwSP8AOCD/AGA4/wBwSP8AcEj/AHBI/wBwSP8AcEj/AHBI/wCIWP////8A////AABw
-        SP8AiFj/AIhY/wBwSP8AYDj/AHBI/wCIWP8AiFj/AIhY/wBgOP8AiFj/AIhY/wBgOP8AmGj/////AP//
-        /wAAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA////
-        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
-        /wD///8A//8AAIABAACAAQAAgAEAAMADAADAAwAAwAMAAMABAADAAQAAwAMAAMADAADAAwAAgAEAAIAB
-        AACAAQAA//8AAA==
-</value>
-  </data>
 </root>

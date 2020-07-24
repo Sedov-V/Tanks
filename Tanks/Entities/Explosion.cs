@@ -7,24 +7,28 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    public class Apple : Entity
+    public class Explosion : Entity
     {
-        private Point pos;
+        private int timer;
 
+        private Point pos;
         public Point Pos => pos;
         public Direction Dir => Direction.None;
+        public int Timer => timer;
 
-        public Apple()
+        public Explosion()
         {
             this.pos = Point.Empty;
+            timer = 0;
         }
 
-        public Apple(Point pos)
+        public Explosion(Point pos)
         {
             this.pos = pos;
+            timer = 0;
         }
 
-        public Apple(int x, int y)
+        public Explosion(int x, int y)
         {
             pos.X = x;
             pos.Y = y;
@@ -32,16 +36,14 @@ namespace Entities
 
         public void Update(double dTime)
         {
+            timer++;
         }
 
-        public void ChangeDirection(Direction dir)
-        {
-        }
+        public void ChangeDirection(Direction dir) { }
 
         public void ChangePosition(Point pos)
         {
             this.pos = pos;
         }
-
     }
 }

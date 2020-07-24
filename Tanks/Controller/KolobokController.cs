@@ -11,16 +11,13 @@ namespace Controller
 {
     public static class KolobokController
     {
-        private static List<Direction> directions = new List<Direction>() { Direction.Up, Direction.Down, Direction.Left, Direction.Right, Direction.None };
         public static void KeyDown(Game game, Keys key)
         {
             Direction dir;
             if ((dir = DirectionFromKey(key)) != Direction.None)
             {
-                directions.Remove(dir);
-                directions.Add(dir);
+                game.kolobok.ChangeDirection(dir);
             }
-            game.kolobok.ChangeDirection(directions.Last());
 
             if (key == Keys.Space)
             {
@@ -32,14 +29,6 @@ namespace Controller
 
         public static void KeyUp(Game game, Keys key)
         {
-            Direction dir;
-            if ((dir = DirectionFromKey(key)) != Direction.None)
-            {
-                directions.Remove(dir);
-                directions.Insert(0, dir);
-            }
-            game.kolobok.ChangeDirection(directions.Last());
-
             if (key == Keys.Space)
                 game.kolobok.canFire = true;
         }

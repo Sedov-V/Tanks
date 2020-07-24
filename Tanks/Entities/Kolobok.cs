@@ -9,63 +9,74 @@ namespace Entities
 {
     public class Kolobok : Entity
     {
-        private bool canMove = false;
         public bool canFire = true;
 
         public Point pos;
-
         private Direction dir;
-
         private int speed;
+
         public Point Pos => pos;
         public Direction Dir => dir;
         public int Speed => speed;
 
         public Kolobok()
         {
-            speed = 1;
             pos = Point.Empty;
             dir = Direction.None;
-        }
-
-        public Kolobok(Point pos)
-        {
             speed = 1;
-            this.pos = pos;
-            dir = Direction.None;
         }
 
-        public void Update()
+        public Kolobok(Point pos, int speed)
         {
-            if (canMove)
+            this.pos = pos;
+            this.dir = Direction.Right;
+            this.speed = speed;
+        }
+
+        public Kolobok(int x, int y, int speed)
+        {
+            this.pos.X = x;
+            this.pos.Y = y;
+            this.dir = Direction.Right;
+            this.speed = speed;
+        }
+
+        public void Update(double dTime)
+        {
+            switch (dir)
             {
-                switch (dir)
-                {
-                    case Direction.Up:
-                        pos.Y -= speed;
-                        break;
-                    case Direction.Down:
-                        pos.Y += speed;
-                        break;
-                    case Direction.Left:
-                        pos.X -= speed;
-                        break;
-                    case Direction.Right:
-                        pos.X += speed;
-                        break;
-                    default:
-                        break;
-                }
+                case Direction.Up:
+                    pos.Y -= (int)(speed * dTime);
+                    break;
+                case Direction.Down:
+                    pos.Y += (int)(speed * dTime);
+                    break;
+                case Direction.Left:
+                    pos.X -= (int)(speed * dTime);
+                    break;
+                case Direction.Right:
+                    pos.X += (int)(speed * dTime);
+                    break;
+                default:
+                    break;
             }
         }
 
         public void ChangeDirection(Direction dir)
         {
-            if (canMove = dir != Direction.None)
-            {
-                this.dir = dir;
-            }
+            this.dir = dir;
         }
+
+        public void ChangePosition(Point pos)
+        {
+            this.pos = pos;
+        }
+
+        public void ChangeSpeed(int speed)
+        {
+            this.speed = speed;
+        }
+
         public Bullet Fire()
         {
             return new Bullet(this);

@@ -13,10 +13,16 @@ namespace Entities
         {
             get;
         }
+
         Direction Dir
         {
             get;
         }
-        void Update();
+
+        void Update(double dTime);
+
+        void ChangeDirection(Direction dir);
+
+        void ChangePosition(Point pos);
     }
 }
