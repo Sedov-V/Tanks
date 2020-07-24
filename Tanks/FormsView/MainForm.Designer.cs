@@ -64,6 +64,8 @@
             this.pictureInformation.TabIndex = 2;
             this.pictureInformation.TabStop = false;
             this.pictureInformation.Click += new System.EventHandler(this.pictureInformation_Click);
+            this.pictureInformation.MouseEnter += new System.EventHandler(this.pictureInformation_MouseEnter);
+            this.pictureInformation.MouseLeave += new System.EventHandler(this.pictureInformation_MouseLeave);
             // 
             // pictureBox
             // 

@@ -96,7 +96,7 @@ namespace FormsView
             tankskView.Draw();
 
             wallsView = new FastEntityView(e.Graphics, game.walls.Cast<Entity>().ToList(), new Bitmap(Properties.Resources.wall), 20);
-            wallsView.Draw();           
+            wallsView.Draw();
 
             bulletsView = new EntityView(e.Graphics, game.bullets.Cast<Entity>().ToList(), new Bitmap(Properties.Resources.bullet), 20);
             bulletsView.Draw();
@@ -179,8 +179,19 @@ namespace FormsView
 
         private void pictureInformation_Click(object sender, EventArgs e)
         {
+            ((PictureBox)sender).Image = Properties.Resources.information3;
             Information info = new Information(game);
             info.Show();
+        }
+
+        private void pictureInformation_MouseEnter(object sender, EventArgs e)
+        {
+            ((PictureBox)sender).Image = Properties.Resources.information2;
+        }
+
+        private void pictureInformation_MouseLeave(object sender, EventArgs e)
+        {
+            ((PictureBox)sender).Image = Properties.Resources.information;
         }
     }
 }
